@@ -1,0 +1,22 @@
+<div class="jumbotron">
+	<h1>Portfolio Page</h1>
+	<%= link_to("Scarica CSV Lista", export_list_url(:csv)) %>
+</div>
+<table class="table table-hover">
+	<tr>
+		<th>Logo</th>
+		<th>Name</th>
+		<th>Category</th>
+		<th>Url</th>
+		<th>Cover</th>
+	</tr>
+	<% @entries.each do |entry| %>
+	<tr>
+		<td><%= image_tag(entry.complete_logo, class: "img-responsive center-block", width: 50) unless(entry.logo.blank?) %></td>
+		<td><%= entry.name %></td>
+		<td><%= entry.category %></td>
+		<td><%= entry.complete_url %></td>
+		<td><%= image_tag(entry.complete_cover, class: "img-responsive center-block", height: 80) %></td>
+	</tr>
+	<% end %>
+</table>
